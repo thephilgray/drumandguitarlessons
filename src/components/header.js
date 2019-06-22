@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React, { useState } from "react"
 import Logo from "../images/logo-red.svg"
 import Drawer from "@material-ui/core/Drawer"
+import Container from "@material-ui/core/Container"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
@@ -19,16 +20,13 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginBottom: `1.45rem`,
     width: "100%",
-    // display: "flex",
   },
   navDrawer: {
-    width: "250px",
+    width: "300px",
   },
   menuIcon: {
     marginLeft: "auto",
-    // alignSelf: "flex-start",
     position: "absolute",
     top: "1rem",
     right: "1rem",
@@ -89,10 +87,9 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header className={classes.root}>
-      <div
+      <Container
+        maxWidth="sm"
         style={{
-          margin: `0 auto`,
-          maxWidth: 960,
           padding: `1.45rem 1.0875rem`,
         }}
       >
@@ -107,7 +104,7 @@ const Header = ({ siteTitle }) => {
             <img src={Logo} style={{ width: "100%" }} alt={siteTitle} />
           </Link>
         </h1>
-      </div>
+      </Container>
       <IconButton
         aria-label="Toggle Navigation"
         onClick={toggleDrawer}

@@ -17,13 +17,32 @@ import {
   MuiThemeProvider,
 } from "@material-ui/core/styles"
 import DrumAndGuitarLogo from "../images/logo.png"
+import StyledBackgroundFooter from "../components/StyledBackgroundFooter"
 
 import Header from "./header"
 import "./layout.css"
+import "typeface-roboto"
 
 let theme = createMuiTheme({
   palette: {
     primary: { main: "#D95141" },
+    secondary: { main: "#fff" },
+  },
+  props: {
+    MuiTypography: {
+      variantMapping: {
+        h1: "h2",
+        h2: "h2",
+        h3: "h2",
+        h4: "h2",
+        h5: "h2",
+        h6: "h2",
+        subtitle1: "h2",
+        subtitle2: "h2",
+        body1: "p",
+        body2: "span",
+      },
+    },
   },
 })
 theme = responsiveFontSizes(theme)
@@ -36,9 +55,8 @@ const useStyles = makeStyles(theme => ({
     alignItems: "flex-end",
   },
   main: {
-    padding: `0px 1.0875rem 1.45rem`,
     margin: `0 auto`,
-    maxWidth: 960,
+    // maxWidth: 960,
     width: `100%`,
   },
   header: {
@@ -65,6 +83,7 @@ const Layout = ({ children }) => {
         siteMetadata {
           title
           copyright
+          keywords
         }
       }
     }
@@ -80,7 +99,7 @@ const Layout = ({ children }) => {
 
         <main className={classes.main}>{children}</main>
 
-        <footer className={classes.footer}>
+        <StyledBackgroundFooter className={classes.footer} height="400px">
           <Container maxWidth="lg">
             <img src={DrumAndGuitarLogo} alt="DrumAndGuitarLessons.com"></img>
             <Typography
@@ -92,7 +111,7 @@ const Layout = ({ children }) => {
               © {new Date().getFullYear()} {site.siteMetadata.copyright}
             </Typography>
           </Container>
-        </footer>
+        </StyledBackgroundFooter>
       </div>
     </MuiThemeProvider>
   )

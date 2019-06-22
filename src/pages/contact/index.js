@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Typography, Box } from "@material-ui/core"
+import { Typography, Box, Container } from "@material-ui/core"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import ContactForm from "../../components/ContactForm"
+import StyledBackgroundSectionContact from "../../components/StyledBackgroundSectionContact"
 
 const Contact = () => {
   const { site } = useStaticQuery(graphql`
@@ -25,25 +26,40 @@ const Contact = () => {
   return (
     <Layout>
       <SEO title="Contact" />
+      <StyledBackgroundSectionContact>
+        <Typography variant="h3" color="secondary" gutterBottom>
+          Contact
+        </Typography>
+      </StyledBackgroundSectionContact>
+      <Container maxWidth="lg">
+        <Box m={4}>
+          <Typography align="center" variant="body1">
+            <a href={"tel:+1" + site.siteMetadata.contact.phone}>
+              {site.siteMetadata.contact.phone}
+            </a>
+          </Typography>
 
-      <Typography variant="h2">Contact</Typography>
-      <Typography component="div" align="center">
-        <Box m={1}>
-          <a href={"tel:+1" + site.siteMetadata.contact.phone}>
-            {site.siteMetadata.contact.phone}
-          </a>
-        </Box>
-        <Box m={1}>
-          <a href={"mailto:" + site.siteMetadata.contact.email}>
-            {site.siteMetadata.contact.email}
-          </a>
-        </Box>
-        <Box m={1}>{site.siteMetadata.contact.address.line2}</Box>
-        <Box m={1}>{site.siteMetadata.contact.address.line3}</Box>
-      </Typography>
+          <Typography align="center" variant="body1">
+            <a href={"mailto:" + site.siteMetadata.contact.email}>
+              {site.siteMetadata.contact.email}
+            </a>
+          </Typography>
 
-      <Typography variant="h3">Message</Typography>
-      <ContactForm />
+          <Typography align="center" variant="body1">
+            {site.siteMetadata.contact.address.line2}
+          </Typography>
+          <Typography align="center" variant="body1">
+            {site.siteMetadata.contact.address.line3}
+          </Typography>
+        </Box>
+
+        <Typography variant="h4" align="center" gutterBottom>
+          Send us a message
+        </Typography>
+        <Box>
+          <ContactForm />
+        </Box>
+      </Container>
     </Layout>
   )
 }

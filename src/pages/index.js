@@ -1,15 +1,18 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Box, Typography } from "@material-ui/core"
+import { Box, Typography, Container } from "@material-ui/core"
 import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import StyledBackgroundSection from "../components/StyledBackgroundSection"
 
 const useStyles = makeStyles(theme => ({
   tagline: {
-    borderLeft: `2rem solid ${theme.palette.primary.main}`,
-    paddingLeft: `1rem`,
+    padding: "2rem",
+    minHeight: `400px`,
+    display: `flex`,
+    alignItems: "center",
   },
   services: {
     padding: `2rem 0`,
@@ -23,9 +26,11 @@ const useStyles = makeStyles(theme => ({
 const Tagline = ({ tagline }) => {
   const classes = useStyles()
   return (
-    <Box component="div" className={classes.tagline}>
-      <Typography variant="h4">{tagline}</Typography>
-    </Box>
+    <Container maxWidth="md" className={classes.tagline}>
+      <Typography variant="h4" color="secondary" align="center">
+        {tagline}
+      </Typography>
+    </Container>
   )
 }
 
@@ -40,7 +45,7 @@ const Service = ({ service, classes }) => (
         style={{ padding: "1rem" }}
       >
         <Grid item xs={12}>
-          <Typography variant="h5" align="center">
+          <Typography variant="h4" align="center" style={{ padding: "1rem" }}>
             {service}
           </Typography>
         </Grid>
@@ -71,7 +76,7 @@ const OurServices = () => {
   const classes = useStyles()
   return (
     <Box component="section" className={classes.services}>
-      <Typography variant="h4">Our Areas of Expertise</Typography>
+      <Typography variant="h4">Our Expertise</Typography>
       <Grid container spacing={4} style={{ marginTop: "1rem" }}>
         {services.map(service => (
           <Service service={service} classes={classes} key={service} />
@@ -94,8 +99,12 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Tagline tagline={site.siteMetadata.description}></Tagline>
-      <OurServices></OurServices>
+      <StyledBackgroundSection>
+        <Tagline tagline={site.siteMetadata.description}></Tagline>
+      </StyledBackgroundSection>
+      <Container maxWidth="lg" style={{ margin: `2rem auto` }}>
+        <OurServices></OurServices>
+      </Container>
     </Layout>
   )
 }

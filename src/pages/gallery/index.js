@@ -36,7 +36,7 @@ export default function GalleryPage() {
           Gallery
         </Typography>
       </StyledBackgroundFooter>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" style={{ marginTop: "1rem" }}>
         <Gallery
           images={data.allGalleryYaml.edges.map(({ node }) => ({
             id: node.image.id,

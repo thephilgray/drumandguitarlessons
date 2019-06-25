@@ -21,6 +21,7 @@ module.exports = (async () => {
       plugins: [
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-styled-components`,
+
         {
           resolve: "gatsby-plugin-material-ui",
           // If you want to use styled components you should change the injection order.
@@ -37,11 +38,20 @@ module.exports = (async () => {
             path: `${__dirname}/src/images`,
           },
         },
+
         {
           resolve: `gatsby-source-filesystem`,
           options: {
             name: `gallery`,
             path: `${__dirname}/src/gallery/`,
+          },
+        },
+        {
+          resolve: "gatsby-plugin-react-svg",
+          options: {
+            rule: {
+              include: /svgs/,
+            },
           },
         },
         `gatsby-transformer-yaml`,

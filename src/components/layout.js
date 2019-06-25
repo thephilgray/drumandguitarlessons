@@ -23,7 +23,7 @@ import Header from "./header"
 import "./layout.css"
 import "typeface-roboto"
 
-let theme = createMuiTheme({
+export const theme = {
   palette: {
     primary: { main: "#D95141" },
     secondary: { main: "#fff" },
@@ -44,8 +44,10 @@ let theme = createMuiTheme({
       },
     },
   },
-})
-theme = responsiveFontSizes(theme)
+}
+
+let muiTheme = createMuiTheme(theme)
+muiTheme = responsiveFontSizes(muiTheme)
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -66,17 +68,18 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: `url(${require("../images/stars.png")}),linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0))`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    margin: `0 auto`,
     marginTop: "2rem",
     textAlign: "center",
     padding: "6em",
     width: "100%",
     bottom: "0",
+    margin: 0,
   },
 }))
 
 const Layout = ({ children }) => {
   const classes = useStyles()
+
   const { site } = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -89,7 +92,7 @@ const Layout = ({ children }) => {
     }
   `)
   return (
-    <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider theme={muiTheme}>
       <div className={classes.root}>
         <CssBaseline />
         <Header

@@ -53,9 +53,6 @@ const Contact = () => {
           </Typography>
         </Box>
 
-        <Typography variant="h4" align="center" gutterBottom>
-          Send us a message
-        </Typography>
         <Box>
           <ContactForm />
         </Box>

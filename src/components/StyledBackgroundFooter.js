@@ -43,7 +43,6 @@ const StyledBackgroundFooter = styled(BackgroundFooter)`
   align-items: center;
   justify-content: center;
   min-height: ${props => props.height};
-  margin-bottom: 2rem;
 `
 
 export default StyledBackgroundFooter

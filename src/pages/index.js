@@ -1,11 +1,12 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { Box, Typography, Container } from "@material-ui/core"
+import { useStaticQuery, graphql, useState, Link } from "gatsby"
+import { Box, Typography, Container, Button } from "@material-ui/core"
 import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import StyledBackgroundSection from "../components/StyledBackgroundSection"
+import Loader from '../components/Loader'
 
 const useStyles = makeStyles(theme => ({
   tagline: {
@@ -13,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     minHeight: `400px`,
     display: `flex`,
     alignItems: "center",
+    alignContent: "center",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
   services: {
     padding: `2rem 0`,
@@ -27,9 +31,16 @@ const Tagline = ({ tagline }) => {
   const classes = useStyles()
   return (
     <Container maxWidth="md" className={classes.tagline}>
-      <Typography variant="h4" color="secondary" align="center">
+      <Typography variant="h4" color="secondary" align="center" gutterBottom>
         {tagline}
       </Typography>
+      <Link to="/contact/" style={{textDecoration: "none"}}>
+      <Button variant="contained" color="primary" size="large">
+      <Typography variant="h5">
+        Enroll
+      </Typography>
+      </Button>
+      </Link>
     </Container>
   )
 }
@@ -86,6 +97,18 @@ const OurServices = () => {
   )
 }
 
+
+const GroupLessons = () => {
+  const classes = useStyles()
+
+  return(
+    <Box component="section" className={classes.groupLessons}>
+      <Typography variant="h5">Now offering group lessons every Monday thereafter from 5:30-6:30pm in the Adult Clubhouse at 17250 Los Jardines West, Fountain Valley, Ca.</Typography>
+
+    </Box>
+  )
+}
+
 const IndexPage = () => {
   const { site } = useStaticQuery(graphql`
     query SiteDescription {
@@ -103,7 +126,8 @@ const IndexPage = () => {
         <Tagline tagline={site.siteMetadata.description}></Tagline>
       </StyledBackgroundSection>
       <Container maxWidth="lg" style={{ margin: `2rem auto` }}>
-        <OurServices></OurServices>
+      <GroupLessons/>
+        <OurServices/>
       </Container>
     </Layout>
   )

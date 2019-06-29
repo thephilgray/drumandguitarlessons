@@ -20,7 +20,6 @@ import DrumAndGuitarLogo from "../images/logo.png"
 import StyledBackgroundFooter from "../components/StyledBackgroundFooter"
 
 import Header from "./header"
-import "./layout.css"
 import "typeface-roboto"
 
 export const theme = {
@@ -104,7 +103,7 @@ const Layout = ({ children }) => {
 
         <StyledBackgroundFooter className={classes.footer} height="400px">
           <Container maxWidth="lg">
-            <img src={DrumAndGuitarLogo} alt="DrumAndGuitarLessons.com"></img>
+            <img src={DrumAndGuitarLogo} alt="DrumAndGuitarLessons.com" style={{maxWidth:"100%"}} />
             <Typography
               variant="h6"
               align="center"

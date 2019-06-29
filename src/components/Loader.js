@@ -4,6 +4,8 @@ import { Container } from "@material-ui/core"
 import Icon from "../svgs/loader.svg"
 
 const StyledLoader = styled(Icon)`
+  display: block;
+  margin: 0 auto;
   @keyframes minute-animation {
     from {
       transform: rotate(0);
@@ -21,25 +23,27 @@ const StyledLoader = styled(Icon)`
       transform: rotate(45deg);
     }
   }
+  .drum-rim,
+  .minute-hand,
+  .hour-hand{
+    fill: ${theme => theme.invert ? '#fff' : '#D95141'};
+  }
 
   .minute-hand,
   .hour-hand {
     transform-origin: 50%;
   }
-
-  .minute-hand {
-    animation: 3s minute-animation linear infinite;
+  .minute-hand{
+    ${({animate}) => animate && `animation: 3s minute-animation linear infinite;`
   }
 
   .hour-hand {
-    animation: 10s hour-animation linear infinite;
+    ${({animate}) => animate && `animation: 10s hour-animation linear infinite;`
   }
-`
+`;
 
-export default function Loader() {
+export default function Loader({small=false, invert, animate=true}) {
   return (
-    <Container align="center">
-      <StyledLoader />
-    </Container>
+      <StyledLoader small={small ? 1 : null} invert={invert ? 1 : null} animate={animate ? 1 : null} />
   )
 }

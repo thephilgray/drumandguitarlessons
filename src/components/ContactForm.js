@@ -70,7 +70,7 @@ export default function ContactForm() {
             </Typography>
             {isSubmitting && <Loader />} */}
             {/* {!isSubmitting && !submitted && ( */}
-              <form name="contact" action="/contact/success/" method="post" data-netlify="true" data-netlify-recaptcha="true">
+              <form name="contact" action="/contact/success/" method="post" data-netlify="true">
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={12}>
                     <TextField
@@ -120,7 +120,6 @@ export default function ContactForm() {
                     />
                   </Grid>
                 </Grid>
-                <div data-netlify-recaptcha="true"/>
                 <Button
                   fullWidth
                   style={{ marginTop: "1em" }}

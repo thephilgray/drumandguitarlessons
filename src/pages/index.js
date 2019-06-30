@@ -18,6 +18,9 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     justifyContent: "center",
   },
+  cta: {
+    marginTop: '1rem'
+  },
   services: {
     padding: `2rem 0`,
   },
@@ -35,7 +38,7 @@ const Tagline = ({ tagline }) => {
         {tagline}
       </Typography>
       <Link to="/contact/" style={{textDecoration: "none"}}>
-      <Button variant="contained" color="primary" size="large">
+      <Button variant="contained" color="primary" size="large" className={classes.cta}>
       <Typography variant="h5">
         Enroll
       </Typography>
@@ -103,7 +106,7 @@ const GroupLessons = () => {
 
   return(
     <Box component="section" className={classes.groupLessons}>
-      <Typography variant="h5">Now offering group lessons every Monday thereafter from 5:30-6:30pm in the Adult Clubhouse at 17250 Los Jardines West, Fountain Valley, Ca.</Typography>
+      <Typography variant="h5">Now offering group lessons every Monday from 5:30-6:30pm in the Adult Clubhouse at 17250 Los Jardines West, Fountain Valley, Ca.</Typography>
 
     </Box>
   )

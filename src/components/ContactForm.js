@@ -41,11 +41,11 @@ export default function ContactForm() {
         return errors
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          console.log(JSON.stringify(values, null, 2))
+        // setTimeout(() => {
+        //   console.log(JSON.stringify(values, null, 2))
+        // }, 4000)
           setSubmitting(false)
           setSubmitted(true)
-        }, 4000)
       }}
     >
       {({
@@ -69,7 +69,7 @@ export default function ContactForm() {
             </Typography>
             {isSubmitting && <Loader />}
             {!isSubmitting && !submitted && (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} data-netlify="true">
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={12}>
                     <TextField

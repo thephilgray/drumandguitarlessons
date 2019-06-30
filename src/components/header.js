@@ -61,8 +61,8 @@ const useStyles = makeStyles(theme => ({
     display: "block",
     marginLeft: "auto",
     position: "absolute",
-    top: "1rem",
-    right: "1rem",
+    top: "1vh",
+    right: "1vw",
     "&:hover": {
       cursor: "pointer",
     },
@@ -80,6 +80,9 @@ const useStyles = makeStyles(theme => ({
   },
   logoImage: {
     margin: 0,
+    [theme.breakpoints.up("md")]: {
+      width: '400px'
+    }
   },
 }))
 
@@ -147,7 +150,7 @@ const Header = ({ siteTitle }) => {
               >
                 <img
                   src={Logo}
-                  width="400px"
+                  width="250"
                   className={classes.logoImage}
                   alt={siteTitle}
                 />

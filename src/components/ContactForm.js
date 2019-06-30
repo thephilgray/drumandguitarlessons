@@ -40,13 +40,13 @@ export default function ContactForm() {
         }
         return errors
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        // setTimeout(() => {
-        //   console.log(JSON.stringify(values, null, 2))
-        // }, 4000)
-          setSubmitting(false)
-          setSubmitted(true)
-      }}
+      // onSubmit={(values, { setSubmitting }) => {
+      //   // setTimeout(() => {
+      //   //   console.log(JSON.stringify(values, null, 2))
+      //   // }, 4000)
+      //     setSubmitting(false)
+      //     setSubmitted(true)
+      // }}
     >
       {({
         values,
@@ -69,7 +69,7 @@ export default function ContactForm() {
             </Typography>
             {isSubmitting && <Loader />}
             {!isSubmitting && !submitted && (
-              <form onSubmit={handleSubmit} data-netlify="true">
+              <form name="contact" method="post" data-netlify="true">
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={12}>
                     <TextField

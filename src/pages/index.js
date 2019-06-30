@@ -1,12 +1,11 @@
 import React from "react"
-import { useStaticQuery, graphql, useState, Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { Box, Typography, Container, Button } from "@material-ui/core"
 import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import StyledBackgroundSection from "../components/StyledBackgroundSection"
-import Loader from '../components/Loader'
 
 const useStyles = makeStyles(theme => ({
   tagline: {

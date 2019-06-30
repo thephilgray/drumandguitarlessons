@@ -112,6 +112,7 @@ const Header = ({ siteTitle }) => {
     {
       title: "Contact",
       href: "/contact/",
+      partiallyActive: true, // match subpages
       icon: () => <ContactIcon color="primary" />,
     },
   ]
@@ -161,7 +162,7 @@ const Header = ({ siteTitle }) => {
             <ul>
               {pages.map(page => (
                 <li key={page.title}>
-                  <Link to={page.href}>
+                  <Link to={page.href} partiallyActive={page.partiallyActive}>
                     <Box component="div" m={3}>
                       <Typography variant="h5">{page.title}</Typography>
                     </Box>

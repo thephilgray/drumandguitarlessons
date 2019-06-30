@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { Container } from "@material-ui/core"
 import Icon from "../svgs/loader.svg"
 
 const StyledLoader = styled(Icon)`

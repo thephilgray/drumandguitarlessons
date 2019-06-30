@@ -1,14 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
+// import React, { useState } from "react"
 import { Formik } from "formik"
 import {
   Container,
-  Typography,
+  // Typography,
   Grid,
   Button,
   TextField,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Loader from "../components/Loader"
+// import Loader from "../components/Loader"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ContactForm() {
   const classes = useStyles()
-  const [submitted, setSubmitted] = useState(false)
+  // const [submitted, setSubmitted] = useState(false)
 
   return (
     <Formik
@@ -62,14 +63,14 @@ export default function ContactForm() {
       }) => {
         return (
           <Container className={classes.root}>
-            <Typography variant="h4" align="center" gutterBottom>
+            {/* <Typography variant="h4" align="center" gutterBottom>
               {submitted && `Got it! Talk to you soon.`}
               {isSubmitting && `Sending...`}
               {!submitted && !isSubmitting && `Send us a message`}
             </Typography>
-            {isSubmitting && <Loader />}
-            {!isSubmitting && !submitted && (
-              <form name="contact" method="post" data-netlify="true">
+            {isSubmitting && <Loader />} */}
+            {/* {!isSubmitting && !submitted && ( */}
+              <form name="contact" action="/contact/success/" method="post" data-netlify="true" data-netlify-recaptcha="true">
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={12}>
                     <TextField
@@ -119,6 +120,7 @@ export default function ContactForm() {
                     />
                   </Grid>
                 </Grid>
+                <div data-netlify-recaptcha="true"/>
                 <Button
                   fullWidth
                   style={{ marginTop: "1em" }}
@@ -131,7 +133,7 @@ export default function ContactForm() {
                   Contact
                 </Button>
               </form>
-            )}
+            {/* )} */}
           </Container>
         )
       }}

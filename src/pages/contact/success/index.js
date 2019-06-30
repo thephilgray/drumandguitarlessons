@@ -1,14 +1,13 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Typography, Box, Container } from "@material-ui/core"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
-import ContactForm from "../../components/ContactForm"
-import StyledBackgroundSectionContact from "../../components/StyledBackgroundSectionContact"
+import Layout from "../../../components/layout"
+import SEO from "../../../components/seo"
+import StyledBackgroundSectionContact from "../../../components/StyledBackgroundSectionContact"
 
-const Contact = () => {
+const ContactSuccess = () => {
   const { site } = useStaticQuery(graphql`
-    query SiteContact {
+    query SiteContactSuccess {
       site {
         siteMetadata {
           contact {
@@ -25,7 +24,7 @@ const Contact = () => {
   `)
   return (
     <Layout>
-      <SEO title="Contact" />
+      <SEO title="Contact Success" />
       <StyledBackgroundSectionContact>
         <Typography variant="h3" color="secondary" gutterBottom>
           Contact
@@ -52,11 +51,13 @@ const Contact = () => {
         </Box>
 
         <Box>
-          <ContactForm />
+            <Typography variant="h4" align="center" gutterBottom>
+            Got it! Talk to you soon.
+            </Typography>
         </Box>
       </Container>
     </Layout>
   )
 }
 
-export default Contact
+export default ContactSuccess

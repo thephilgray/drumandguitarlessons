@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "https://3hourtourstudios.com/*"
+  to = "https://drumandguitarlessons.com/:splat"
+  force = true

@@ -30,6 +30,7 @@ export default function ContactForm() {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
         <Grid container spacing={2}>
           <Grid item xs={12} md={12}>

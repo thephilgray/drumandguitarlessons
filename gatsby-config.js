@@ -17,10 +17,14 @@ const fetchMetaData = async () => {
 module.exports = (async () => {
   return fetchMetaData().then(metaData => {
     return {
-      siteMetadata: { ...metaData },
+      siteMetadata: {
+        siteUrl: `https://drumandguitarlessons.com`,
+        ...metaData,
+      },
       plugins: [
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-styled-components`,
+        `gatsby-plugin-sitemap`,
 
         {
           resolve: "gatsby-plugin-material-ui",

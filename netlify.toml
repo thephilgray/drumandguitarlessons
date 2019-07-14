@@ -2,3 +2,33 @@
   from = "https://3hourtourstudios.com/*"
   to = "https://drumandguitarlessons.com/:splat"
   force = true
+[[redirects]]
+  from = "/aboutus"
+  to = "https://drumandguitarlessons.com/about"
+[[redirects]]
+  from = "/audio"
+  to = "https://drumandguitarlessons.com/"
+[[redirects]]
+  from = "/drums"
+  to = "https://drumandguitarlessons.com/"
+[[redirects]]
+  from = "/guitars"
+  to = "https://drumandguitarlessons.com/"
+[[redirects]]
+  from = "/micplacement"
+  to = "https://drumandguitarlessons.com/"
+[[redirects]]
+  from = "/mobilelessons"
+  to = "https://drumandguitarlessons.com/"
+[[redirects]]
+  from = "/page12"
+  to = "https://drumandguitarlessons.com/"
+[[redirects]]
+  from = "/signups"
+  to = "https://drumandguitarlessons.com/contact"
+[[redirects]]
+  from = "/studiolessons"
+  to = "https://drumandguitarlessons.com/"
+[[redirects]]
+  from = "/tuningtips"
+  to = "https://drumandguitarlessons.com/"

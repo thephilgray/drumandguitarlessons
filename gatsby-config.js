@@ -25,6 +25,21 @@ module.exports = (async () => {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-styled-components`,
         `gatsby-plugin-sitemap`,
+        {
+          resolve: "gatsby-plugin-google-tagmanager",
+          options: {
+            id: "GTM-M6RFP2J",
+
+            // Include GTM in development.
+            // Defaults to false meaning GTM will only be loaded in production.
+            includeInDevelopment: false,
+
+            // datalayer to be set before GTM is loaded
+            // should be an object or a function that is executed in the browser
+            // Defaults to null
+            defaultDataLayer: { platform: "gatsby" },
+          },
+        },
 
         {
           resolve: "gatsby-plugin-material-ui",

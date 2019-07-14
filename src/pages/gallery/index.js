@@ -4,7 +4,7 @@ import { Typography, Container } from "@material-ui/core"
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import Gallery from "../../components/GatsbyGallery"
-import StyledBackgroundFooter from "../../components/StyledBackgroundFooter"
+import StyledBackgroundSection from "../../components/StyledBackgroundSection"
 
 export default function GalleryPage() {
   const data = useStaticQuery(graphql`
@@ -31,11 +31,11 @@ export default function GalleryPage() {
   return (
     <Layout>
       <SEO title="Gallery" />
-      <StyledBackgroundFooter height="200px">
+      <StyledBackgroundSection height="400px">
         <Typography variant="h3" align="center" color="secondary" gutterBottom>
           Gallery
         </Typography>
-      </StyledBackgroundFooter>
+      </StyledBackgroundSection>
       <Container maxWidth="xl" style={{ marginTop: "1rem" }}>
         <Gallery
           images={data.allGalleryYaml.edges.map(({ node }) => ({

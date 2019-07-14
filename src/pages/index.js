@@ -5,7 +5,7 @@ import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import StyledBackgroundSection from "../components/StyledBackgroundSection"
+import styled from "styled-components"
 
 const useStyles = makeStyles(theme => ({
   tagline: {
@@ -16,9 +16,10 @@ const useStyles = makeStyles(theme => ({
     alignContent: "center",
     flexWrap: "wrap",
     justifyContent: "center",
+    zIndex: 100,
   },
   cta: {
-    marginTop: '1rem'
+    marginTop: "1rem",
   },
   services: {
     padding: `2rem 0`,
@@ -36,12 +37,15 @@ const Tagline = ({ tagline }) => {
       <Typography variant="h4" color="secondary" align="center" gutterBottom>
         {tagline}
       </Typography>
-      <Link to="/contact/" style={{textDecoration: "none"}}>
-      <Button variant="contained" color="primary" size="large" className={classes.cta}>
-      <Typography variant="h5">
-        Enroll
-      </Typography>
-      </Button>
+      <Link to="/contact/" style={{ textDecoration: "none" }}>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          className={classes.cta}
+        >
+          <Typography variant="h5">Enroll</Typography>
+        </Button>
       </Link>
     </Container>
   )
@@ -99,17 +103,84 @@ const OurServices = () => {
   )
 }
 
-
 const GroupLessons = () => {
   const classes = useStyles()
 
-  return(
+  return (
     <Box component="section" className={classes.groupLessons}>
-      <Typography variant="h5">Now offering group lessons every Monday from 5:30-6:30pm in the Adult Clubhouse at 17250 Los Jardines West, Fountain Valley, Ca.</Typography>
-
+      <Typography variant="h5">
+        Now offering group lessons every Monday from 5:30-6:30pm in the Adult
+        Clubhouse at 17250 Los Jardines West, Fountain Valley, Ca.
+      </Typography>
     </Box>
   )
 }
+
+const StyledHero = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`
+
+const StyledVideoOuter = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 1;
+`
+
+const SyledVideoInner = styled.div`
+  position: relative;
+  height: 100%;
+
+  &:before {
+    /* background-color: #d95141; */
+    background-color: rgba(255, 0, 0, 0.3);
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* mix-blend-mode: darken; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  &:after {
+    /* background-color: #192550; */
+    background-color: rgba(0, 0, 0, 0.5);
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* mix-blend-mode: lighten; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+`
+
+const StyledVideo = styled.video`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1;
+`
 
 const IndexPage = () => {
   const { site } = useStaticQuery(graphql`
@@ -124,12 +195,29 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <StyledBackgroundSection>
+      <StyledHero>
         <Tagline tagline={site.siteMetadata.description}></Tagline>
-      </StyledBackgroundSection>
+        <StyledVideoOuter>
+          <SyledVideoInner>
+            <StyledVideo autoPlay muted loop>
+              <source
+                src={require("../video/drums-and-guitar.mp4")}
+                type="video/mp4"
+              ></source>
+              <p>
+                Your browser doesn't support HTML5 video. Here is a{" "}
+                <a href="https://drumandguitarlessons.s3-us-west-1.amazonaws.com/drums-and-guitar-lq.mp4">
+                  link to the video
+                </a>{" "}
+                instead.
+              </p>
+            </StyledVideo>
+          </SyledVideoInner>
+        </StyledVideoOuter>
+      </StyledHero>
       <Container maxWidth="lg" style={{ margin: `2rem auto` }}>
-      <GroupLessons/>
-        <OurServices/>
+        <GroupLessons />
+        <OurServices />
       </Container>
     </Layout>
   )

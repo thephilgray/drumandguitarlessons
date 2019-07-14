@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import BackgroundImage from "gatsby-background-image"
 
-const BackgroundSection = ({ className, children }) => {
+const BackgroundSection = ({ className, children, height }) => {
   const data = useStaticQuery(graphql`
     query {
       desktop: file(relativePath: { eq: "drumsandguitar.png" }) {
@@ -36,9 +36,13 @@ const BackgroundSection = ({ className, children }) => {
 
 const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
-  background-position: bottom center;
+  background-position: center center;
   background-repeat: repeat-y;
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: ${props => props.height};
 `
 
 export default StyledBackgroundSection

@@ -199,7 +199,7 @@ const IndexPage = () => {
         <Tagline tagline={site.siteMetadata.description}></Tagline>
         <StyledVideoOuter>
           <SyledVideoInner>
-            <StyledVideo autoPlay muted loop>
+            <StyledVideo autoPlay muted loop playsInline>
               <source
                 src={require("../video/drums-and-guitar.mp4")}
                 type="video/mp4"

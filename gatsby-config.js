@@ -80,8 +80,8 @@ module.exports = (async () => {
         {
           resolve: `gatsby-plugin-manifest`,
           options: {
-            name: `gatsby-starter-default`,
-            short_name: `starter`,
+            name: `3-hour-tour-studios`,
+            short_name: `3 Hour Tour Studios`,
             start_url: `/`,
             background_color: `#D95141`,
             theme_color: `#D95141`,

@@ -1,11 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { Box, Typography, Container, Button } from "@material-ui/core"
+import styled from "styled-components"
 import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import CTA from "../components/CTA"
 
 const useStyles = makeStyles(theme => ({
   tagline: {
@@ -37,16 +38,7 @@ const Tagline = ({ tagline }) => {
       <Typography variant="h4" color="secondary" align="center" gutterBottom>
         {tagline}
       </Typography>
-      <Link to="/contact/" style={{ textDecoration: "none" }}>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          className={classes.cta}
-        >
-          <Typography variant="h5">Enroll</Typography>
-        </Button>
-      </Link>
+      <CTA />
     </Container>
   )
 }

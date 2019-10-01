@@ -47,6 +47,7 @@ const StyledNav = styled.nav`
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
+    alignSelf: "flex-start",
   },
   navDrawer: {
     width: "300px",
@@ -81,8 +82,8 @@ const useStyles = makeStyles(theme => ({
   logoImage: {
     margin: 0,
     [theme.breakpoints.up("md")]: {
-      width: '400px'
-    }
+      width: "400px",
+    },
   },
 }))
 
@@ -137,51 +138,49 @@ const Header = ({ siteTitle }) => {
   )
 
   return (
-    <header className={classes.root}>
-      <AppBar position="static" color="secondary">
-        <Toolbar>
-          <Container maxWidth="sm" className={classes.logoContainer}>
-            <h1 style={{ textAlign: "center", margin: 0 }}>
-              <Link
-                to="/"
-                style={{
-                  color: `white`,
-                  textDecoration: `none`,
-                }}
-              >
-                <img
-                  src={Logo}
-                  width="250"
-                  className={classes.logoImage}
-                  alt={siteTitle}
-                />
-              </Link>
-            </h1>
-          </Container>
-          <StyledNav className={classes.desktopNav}>
-            <ul>
-              {pages.map(page => (
-                <li key={page.title}>
-                  <Link to={page.href} partiallyActive={page.partiallyActive}>
-                    <Box component="div" m={3}>
-                      <Typography variant="h5">{page.title}</Typography>
-                    </Box>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </StyledNav>
-          <IconButton
-            aria-label="Toggle Navigation"
-            onClick={toggleDrawer}
-            className={classes.menuIcon}
-          >
-            <MenuIcon color="primary" style={{ fontSize: "35px" }} />
-          </IconButton>
-          {navDrawer}
-        </Toolbar>
-      </AppBar>
-    </header>
+    <AppBar position="static" color="secondary" className={classes.root}>
+      <Toolbar>
+        <Container maxWidth="sm" className={classes.logoContainer}>
+          <h1 style={{ textAlign: "center", margin: 0 }}>
+            <Link
+              to="/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              <img
+                src={Logo}
+                width="250"
+                className={classes.logoImage}
+                alt={siteTitle}
+              />
+            </Link>
+          </h1>
+        </Container>
+        <StyledNav className={classes.desktopNav}>
+          <ul>
+            {pages.map(page => (
+              <li key={page.title}>
+                <Link to={page.href} partiallyActive={page.partiallyActive}>
+                  <Box component="div" m={3}>
+                    <Typography variant="h5">{page.title}</Typography>
+                  </Box>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </StyledNav>
+        <IconButton
+          aria-label="Toggle Navigation"
+          onClick={toggleDrawer}
+          className={classes.menuIcon}
+        >
+          <MenuIcon color="primary" style={{ fontSize: "35px" }} />
+        </IconButton>
+        {navDrawer}
+      </Toolbar>
+    </AppBar>
   )
 }
 

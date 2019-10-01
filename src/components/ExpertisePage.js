@@ -16,7 +16,10 @@ export default function ExpertisePage({ pageContext }) {
         </Typography>
       </StyledBackgroundSection>
       <Container maxWidth="md">
-        <div dangerouslySetInnerHTML={{ __html: html }}></div>
+        <div
+          dangerouslySetInnerHTML={{ __html: html }}
+          style={{ fontSize: "1rem" }}
+        ></div>
         <div style={{ width: "100%", textAlign: "center" }}>
           <CTA style={{ margin: "0 auto" }} />
         </div>

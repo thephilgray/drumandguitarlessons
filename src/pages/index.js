@@ -1,11 +1,12 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { Box, Typography, Container, Button } from "@material-ui/core"
+import { useStaticQuery, graphql, navigate } from "gatsby"
+import { Box, Typography, Container } from "@material-ui/core"
+import styled from "styled-components"
 import { Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from "styled-components"
+import CTA from "../components/CTA"
 
 const useStyles = makeStyles(theme => ({
   tagline: {
@@ -23,10 +24,16 @@ const useStyles = makeStyles(theme => ({
   },
   services: {
     padding: `2rem 0`,
+    cursor: "pointer",
   },
   service: {
     background: theme.palette.primary.main,
     color: "#fff",
+    transition:
+      "transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
   },
 }))
 
@@ -37,56 +44,60 @@ const Tagline = ({ tagline }) => {
       <Typography variant="h4" color="secondary" align="center" gutterBottom>
         {tagline}
       </Typography>
-      <Link to="/contact/" style={{ textDecoration: "none" }}>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          className={classes.cta}
-        >
-          <Typography variant="h5">Enroll</Typography>
-        </Button>
-      </Link>
+      <CTA />
     </Container>
   )
 }
 
-const Service = ({ service, classes }) => (
-  <Grid item xs={12} md={6} style={{ height: "100%" }}>
-    <Box component="div" className={classes.service}>
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        wrap="wrap"
-        style={{ padding: "1rem" }}
+const Service = ({ service }) => {
+  const classes = useStyles()
+  return (
+    <Grid item xs={12} md={6} style={{ height: "100%" }}>
+      <Box
+        component="div"
+        className={classes.service}
+        onClick={() => navigate(service.to)}
+        onKeyDown={e => {
+          const enter = e.keyCode === "13"
+          if (enter) {
+            navigate(service.to)
+          }
+        }}
       >
-        <Grid item xs={12}>
-          <Typography variant="h4" align="center" style={{ padding: "1rem" }}>
-            {service}
-          </Typography>
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          wrap="wrap"
+          style={{ padding: "1rem" }}
+        >
+          <Grid item xs={12}>
+            <Typography variant="h4" align="center" style={{ padding: "1rem" }}>
+              {service.name}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} style={{ textAlign: "center", padding: "1rem" }}>
+            <img
+              src={require("../images/icon-" + service.name + ".svg")}
+              alt={service.name}
+              height="100px"
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} style={{ textAlign: "center", padding: "1rem" }}>
-          <img
-            src={require("../images/icon-" + service + ".svg")}
-            alt={service}
-            height="100px"
-          />
-        </Grid>
-      </Grid>
-    </Box>
-  </Grid>
-)
+      </Box>
+    </Grid>
+  )
+}
 
 const services = [
-  "drums",
-  "guitar",
-  "bass",
-  "keyboards",
-  "recording",
-  "theory",
-  "composition",
-  "production",
+  { name: "drums", to: "/drums/" },
+  { name: "guitar", to: "/guitar/" },
+  { name: "bass", to: "/about/" },
+  { name: "keyboards", to: "/about/" },
+  { name: "recording", to: "/about/" },
+  { name: "theory", to: "/about/" },
+  { name: "composition", to: "/about/" },
+  { name: "production", to: "/about/" },
 ]
 
 const OurServices = () => {
@@ -96,7 +107,7 @@ const OurServices = () => {
       <Typography variant="h4">Our Expertise</Typography>
       <Grid container spacing={4} style={{ marginTop: "1rem" }}>
         {services.map(service => (
-          <Service service={service} classes={classes} key={service} />
+          <Service service={service} key={service.name} />
         ))}
       </Grid>
     </Box>

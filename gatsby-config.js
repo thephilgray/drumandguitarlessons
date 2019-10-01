@@ -66,6 +66,13 @@ module.exports = (async () => {
           },
         },
         {
+          resolve: `gatsby-source-filesystem`,
+          options: {
+            name: `expertise`,
+            path: `${__dirname}/src/expertise/`,
+          },
+        },
+        {
           resolve: "gatsby-plugin-react-svg",
           options: {
             rule: {
@@ -73,6 +80,7 @@ module.exports = (async () => {
             },
           },
         },
+        `gatsby-transformer-remark`,
         `gatsby-transformer-yaml`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,

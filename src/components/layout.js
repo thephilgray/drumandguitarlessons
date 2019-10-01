@@ -62,6 +62,7 @@ const useStyles = makeStyles(theme => ({
   },
   header: {
     width: "100%",
+    alignSelf: "flex-start",
   },
   footer: {
     backgroundImage: `url(${require("../images/stars.png")}),linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0))`,
@@ -103,7 +104,11 @@ const Layout = ({ children }) => {
 
         <StyledBackgroundFooter className={classes.footer} height="400px">
           <Container maxWidth="lg">
-            <img src={DrumAndGuitarLogo} alt="DrumAndGuitarLessons.com" style={{maxWidth:"100%"}} />
+            <img
+              src={DrumAndGuitarLogo}
+              alt="DrumAndGuitarLessons.com"
+              style={{ maxWidth: "100%" }}
+            />
             <Typography
               variant="h6"
               align="center"

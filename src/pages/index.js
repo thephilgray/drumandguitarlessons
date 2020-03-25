@@ -120,8 +120,7 @@ const GroupLessons = () => {
   return (
     <Box component="section" className={classes.groupLessons}>
       <Typography variant="h5">
-        Now offering group lessons every Monday from 5:30-6:30pm in the Adult
-        Clubhouse at 17250 Los Jardines West, Fountain Valley, Ca.
+      We are now also offering video guitar and drum lessons, helping to honor the social distancing requirements to remain healthy.  You may take personal, one on one sessions with your instructor on FaceTime, Skype or Zoom.  We will email you the materials for each lesson and receive payment through Zelle, PayPal or Venmo at your designated time and day each week.  All skill levels and ages are welcome.
       </Typography>
     </Box>
   )

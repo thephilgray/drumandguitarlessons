@@ -57,19 +57,19 @@ const Gallery = ({ images, itemsPerRow: itemsPerRowByBreakpoints }) => {
             openModal(i)
           }}
         >
-          <StyledBox
-            as={Img}
-            fluid={image}
-            title={image.caption}
-            width={rowAspectRatioSumsByBreakpoints.map(
-              (rowAspectRatioSums, j) => {
-                const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j])
-                const rowAspectRatioSum = rowAspectRatioSums[rowIndex]
+          <StyledBox width={rowAspectRatioSumsByBreakpoints.map(
+            (rowAspectRatioSums, j) => {
+              const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j])
+              const rowAspectRatioSum = rowAspectRatioSums[rowIndex]
 
-                return `${(image.aspectRatio / rowAspectRatioSum) * 100}%`
-              }
-            )}
-          />
+              return `${(image.aspectRatio / rowAspectRatioSum) * 100}%`
+            }
+          )}>
+            <Img
+              fluid={image}
+              title={image.caption}
+            />
+          </StyledBox>
         </Link>
       ))}
 

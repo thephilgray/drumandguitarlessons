@@ -1,3 +1,4 @@
+# breaking upgrade changes forced us to move this data directly into gatsby-config. exploring options for exposing it to CMS.
 title: 3 Hour Tour Studios
 description: Professional music lessons in the Huntington Beach/Fountain Valley area, available in-home or in our studio.
 keywords:

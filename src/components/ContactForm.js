@@ -30,7 +30,9 @@ export default function ContactForm() {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
+        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
         <input type="hidden" name="form-name" value="contact" />
+        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
         <input type="hidden" name="bot-field" />
         <Grid container spacing={2}>
           <Grid item xs={12} md={12}>

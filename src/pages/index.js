@@ -92,7 +92,7 @@ const Service = ({ service }) => {
 const services = [
   { name: "drums", to: "/drums/" },
   { name: "guitar", to: "/guitar/" },
-  { name: "bass", to: "/about/" },
+  { name: "bass", to: "/bass/" },
   { name: "keyboards", to: "/about/" },
   { name: "recording", to: "/about/" },
   { name: "theory", to: "/about/" },

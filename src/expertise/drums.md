@@ -1,6 +1,6 @@
 ---
-title: 'Drums'
-slug: 'drums'
+title: Drums
+slug: drums
 draft: false
 ---
 

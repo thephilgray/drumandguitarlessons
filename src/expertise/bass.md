@@ -1,7 +1,7 @@
 ---
-title: 'Bass Guitar'
-slug: 'bass'
-draft: true
+title: Bass Guitar
+slug: bass
+draft: false
 ---
 
 The heartbeat of all music...the bass guitar! Have you ever wondered what makes a song so thick, so deep and so moving? It’s all about that bass.

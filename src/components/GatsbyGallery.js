@@ -52,6 +52,7 @@ const Gallery = ({ images, itemsPerRow: itemsPerRowByBreakpoints }) => {
       url={url}
       playing={isSelected}
       style={{ margin: '0 auto', maxWidth: '100vw' }}
+      controls={true}
     />
   );
 

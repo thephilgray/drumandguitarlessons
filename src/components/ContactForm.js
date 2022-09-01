@@ -29,6 +29,7 @@ export default function ContactForm() {
         action="/contact/success"
         method="post"
         data-netlify="true"
+        data-netlify-recaptcha="true"
         data-netlify-honeypot="bot-field"
       >
         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
@@ -76,6 +77,7 @@ export default function ContactForm() {
             />
           </Grid>
         </Grid>
+        <div data-netlify-recaptcha="true"></div>
         <Button
           fullWidth
           style={{ marginTop: "1em" }}

@@ -93,7 +93,7 @@ const services = [
   { name: "drums", to: "/drums/" },
   { name: "guitar", to: "/guitar/" },
   { name: "bass", to: "/bass/" },
-  { name: "keyboards", to: "/about/" },
+  { name: "keyboards", to: "/keyboards/" },
   { name: "recording", to: "/about/" },
   { name: "theory", to: "/about/" },
   { name: "composition", to: "/about/" },
@@ -120,7 +120,7 @@ const GroupLessons = () => {
   return (
     <Box component="section" className={classes.groupLessons}>
       <Typography variant="h5">
-      We are now also offering video guitar and drum lessons, helping to honor the social distancing requirements to remain healthy.  You may take personal, one on one sessions with your instructor on FaceTime, Skype or Zoom.  We will email you the materials for each lesson and receive payment through Zelle, PayPal or Venmo at your designated time and day each week.  All skill levels and ages are welcome.
+        We are now also offering video guitar and drum lessons, helping to honor the social distancing requirements to remain healthy.  You may take personal, one on one sessions with your instructor on FaceTime, Skype or Zoom.  We will email you the materials for each lesson and receive payment through Zelle, PayPal or Venmo at your designated time and day each week.  All skill levels and ages are welcome.
       </Typography>
     </Box>
   )

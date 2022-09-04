@@ -13,6 +13,7 @@ export default function GalleryPage() {
         edges {
           node {
             title
+            youtubeId
             image {
               id
               childImageSharp {
@@ -41,6 +42,7 @@ export default function GalleryPage() {
           images={data.allGalleryYaml.edges.map(({ node }) => ({
             id: node.image.id,
             ...node.image.childImageSharp.fluid,
+            youtubeId: node.youtubeId,
             caption: `${node.title}`,
           }))}
           itemsPerRow={[2, 3]}

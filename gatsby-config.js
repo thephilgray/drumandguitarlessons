@@ -1,6 +1,9 @@
 const fs = require("fs")
 const path = require("path")
 const yaml = require("js-yaml")
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const fetchMetaData = async () => {
   let doc

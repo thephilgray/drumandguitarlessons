@@ -4380,7 +4380,7 @@ command-exists@^1.2.4:
   resolved "https://registry.npmjs.org/command-exists/-/command-exists-1.2.9.tgz"
   integrity sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==
 
-commander@^2.11.0, commander@^2.20.0:
+commander@^2.11.0, commander@^2.20.0, commander@^2.20.3:
   version "2.20.3"
   resolved "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -4961,6 +4961,11 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+cssfilter@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/cssfilter/-/cssfilter-0.0.10.tgz#c6d2672632a2e5c83e013e6864a42ce8defd20ae"
+  integrity sha512-FAaLDaplstoRsDR8XGYH51znUN0UY7nMc6Z9/fvE8EXGwvJE9hu7W2vHwx1+bd6gCYnln9nLbzxFTrcO9YQDZw==
 
 cssnano-preset-default@^4.0.7:
   version "4.0.7"
@@ -7929,9 +7934,11 @@ graphql-import@^0.7.1:
     resolve-from "^4.0.0"
 
 graphql-playground-html@^1.6.19:
-  version "1.6.20"
-  resolved "https://registry.npmjs.org/graphql-playground-html/-/graphql-playground-html-1.6.20.tgz"
-  integrity sha512-RkC18un0a1YEm0PoTMGgFQh7kIA6mtp3dUun+6coWtuMLczoNNij6V0DPHEj5kWi8u0qIrSKgSx5kh4pxcCX6g==
+  version "1.6.30"
+  resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.30.tgz#14c2a8eb7fc17bfeb1a746bbb28a11e34bf0b391"
+  integrity sha512-tpCujhsJMva4aqE8ULnF7/l3xw4sNRZcSHu+R00VV+W0mfp+Q20Plvcrp+5UXD+2yS6oyCXncA+zoQJQqhGCEw==
+  dependencies:
+    xss "^1.0.6"
 
 graphql-playground-middleware-express@^1.7.14:
   version "1.7.15"
@@ -16364,6 +16371,14 @@ xregexp@^4.3.0:
   integrity sha512-7jXDIFXh5yJ/orPn4SXjuVrWWoi4Cr8jfV1eHv9CixKSbU+jY4mxfrBwAuDvupPNKpMUY+FeIqsVw/JLT9+B8g==
   dependencies:
     "@babel/runtime-corejs3" "^7.8.3"
+
+xss@^1.0.6:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.14.tgz#4f3efbde75ad0d82e9921cc3c95e6590dd336694"
+  integrity sha512-og7TEJhXvn1a7kzZGQ7ETjdQVS2UfZyTlsEdDOqvQF7GoxNfY+0YLCzBy1kPdsDDx4QuNAonQPddpsn6Xl/7sw==
+  dependencies:
+    commander "^2.20.3"
+    cssfilter "0.0.10"
 
 xstate@^4.9.1:
   version "4.10.0"

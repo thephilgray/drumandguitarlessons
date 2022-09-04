@@ -5,6 +5,7 @@ import { Box, Link } from "rebass"
 import styled from "styled-components"
 import { chunk, sum } from "../utils/array"
 import carouselFormatters from "../utils/carouselFormatters"
+import ReactPlayer from 'react-player';
 
 // type Props = {
 //   images: {
@@ -46,6 +47,35 @@ const Gallery = ({ images, itemsPerRow: itemsPerRowByBreakpoints }) => {
     setModalIsOpen(true)
   }
 
+  const YoutubeSlide = ({ url, isSelected }) => (
+    <ReactPlayer
+      url={url}
+      playing={isSelected}
+      style={{ margin: '0 auto', maxWidth: '100vw' }}
+      controls={true}
+    />
+  );
+
+  const CustomView = ({ data }) => {
+    return <div className="customView" style={{ display: 'flex', justifyContent: "center" }}>
+      {data.youtubeId ?
+        <YoutubeSlide url={`https://www.youtube.com/embed/${data.youtubeId}`} /> :
+        (<img
+          className="viewImage"
+          src={data.source}
+          alt={data.caption}
+          width="auto"
+          style={{
+            height: 'auto',
+            maxHeight: '100vh',
+            maxWidth: '100%',
+            userSelect: 'none',
+          }}
+        />
+        )}
+    </div>
+  }
+
   return (
     <Box>
       {images.map((image, i) => (
@@ -61,7 +91,6 @@ const Gallery = ({ images, itemsPerRow: itemsPerRowByBreakpoints }) => {
             (rowAspectRatioSums, j) => {
               const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j])
               const rowAspectRatioSum = rowAspectRatioSums[rowIndex]
-
               return `${(image.aspectRatio / rowAspectRatioSum) * 100}%`
             }
           )}>
@@ -78,13 +107,17 @@ const Gallery = ({ images, itemsPerRow: itemsPerRowByBreakpoints }) => {
           {modalIsOpen && (
             <Modal onClose={closeModal}>
               <Carousel
-                views={images.map(({ originalImg, caption }) => ({
+                views={images.map(({ originalImg, caption, youtubeId }) => ({
                   source: originalImg,
                   caption,
+                  youtubeId
                 }))}
                 currentIndex={modalCurrentIndex}
                 formatters={carouselFormatters}
-                components={{ FooterCount: () => null }}
+                components={{
+                  FooterCount: () => null,
+                  View: CustomView
+                }}
               />
             </Modal>
           )}
